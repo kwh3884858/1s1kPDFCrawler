@@ -1,11 +1,9 @@
 package com.StarPlatinum.s1kPDFCrawler;
 
 
-import java.awt.List;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Scanner;
 
@@ -13,21 +11,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.DomElement;
-import com.gargoylesoftware.htmlunit.html.DomNodeList;
-import com.gargoylesoftware.htmlunit.html.HtmlDivision;
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlParagraph;
-import com.gargoylesoftware.htmlunit.javascript.host.html.HTMLParamElement;
-
-import edu.uci.ics.crawler4j.crawler.authentication.NtAuthInfo;
-import java_cup.runtime.lr_parser;
-
 
 /**
  * Hello world!
@@ -56,7 +39,7 @@ public class App
 	    File out = CreateFileUtil.createFile(outFileName, "txt");
 	    OutputStream outputStream = new FileOutputStream(out);
 	    
-		for(int i = 1 ;i < pageCount; i++) {
+		for(int i = 1 ;i <= pageCount; i++) {
 			Document pageJson = Jsoup.connect("http://doc.baidubce.com/v2/reader?getcontent&doc_id=" 
 											+ docId+ "&pn=" + i+
 											"&v=1&host=BCEDOC&token=TOKEN&type=xreader").ignoreContentType(true).get();
